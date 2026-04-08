@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+}
+
+.animated-background {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #FE3653, #2356FC);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo-image {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    animation: pulseScale 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pulseScale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ========== PARTÍCULAS ========== */
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    /* Las partículas aparecen detrás del logo pero frente del background */
+}
+
+.particles-js-canvas-el {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Asegurar que el logo esté adelante */
+.logo-image {
+    position: relative;
+    z-index: 20;
+}
